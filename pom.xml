@@ -50,11 +50,16 @@
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 
-        <!-- version of Hadoop infrastructure tools -->
+        <!-- version of Hadoop infrastructure tools, provided -->
         <!-- see http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/CDH-Version-and-Packaging-Information/cdhvd_cdh_package_previous.html -->
         <hadoop.version>2.0.0-cdh4.2.0</hadoop.version>
         <pig.version>0.10.0-cdh4.2.0</pig.version>
         <hbase.version>0.94.2-cdh4.2.0</hbase.version>
+        <!-- transitive dependencies of CDH4, provided, if used standalone -->
+        <!-- UPDATE accordingly if CDH version is changed! -->
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        
         <mahout.version>0.7-cdh4.2.0</mahout.version>
         <lily.version>2.4</lily.version>
     </properties>
@@ -106,6 +111,19 @@
                         <groupId>junit</groupId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
