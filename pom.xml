@@ -11,7 +11,7 @@
 
     <name>E-ARK WP6 Parent</name>
     <description>Common Maven Configuration</description>
-    <!-- TODO add Maven site parent url -->
+    <!-- TODO add Maven site parent URL -->
     <inceptionYear>2014</inceptionYear>
     <organization>
         <name>E-ARK Project (European Archival Records and Knowledge Preservation)</name>
@@ -55,7 +55,7 @@
         <hadoop.version>2.0.0-cdh4.2.0</hadoop.version>
         <pig.version>0.10.0-cdh4.2.0</pig.version>
         <hbase.version>0.94.2-cdh4.2.0</hbase.version>
-        <!-- transitive dependencies of CDH4, provided, if used standalone -->
+        <!-- transitive dependencies of CDH4, provided, if used stand-alone -->
         <!-- UPDATE accordingly if CDH version is changed! -->
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.6.1</slf4j.version>
