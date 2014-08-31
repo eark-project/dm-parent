@@ -59,7 +59,7 @@
         <!-- UPDATE accordingly if CDH version is changed! -->
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.6.1</slf4j.version>
-        
+
         <mahout.version>0.7-cdh4.2.0</mahout.version>
         <lily.version>2.4</lily.version>
     </properties>
