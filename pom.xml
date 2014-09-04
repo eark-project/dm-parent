@@ -4,52 +4,27 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.eu.eark</groupId>
+    <parent>
+        <groupId>org.eu.eark</groupId>
+        <artifactId>global-configuration</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../global-configuration</relativePath>
+    </parent>
+
     <artifactId>dm-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>E-ARK WP6 Parent</name>
     <description>Common Maven Configuration</description>
-    <!-- TODO add Maven site parent URL -->
-    <inceptionYear>2014</inceptionYear>
-    <organization>
-        <name>E-ARK Project (European Archival Records and Knowledge Preservation)</name>
-        <url>http://www.eark-project.com/</url>
-    </organization>
-    <licenses>
-        <license>
-            <name>Apache License 2.0</name>
-            <url>http://opensource.org/licenses/Apache-2.0</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <prerequisites>
-        <maven>3.0.4</maven>
-    </prerequisites>
 
     <scm>
         <connection>scm:git:git://github.com/eark-project/${project.artifactId}.git</connection>
         <developerConnection>scm:git:https://github.com/eark-project/${project.artifactId}.git</developerConnection>
         <url>https://github.com/eark-project/${project.artifactId}</url>
     </scm>
-    <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/eark-project/${project.artifactId}/issues</url>
-    </issueManagement>
-    <ciManagement>
-        <!-- TODO this is Peter's private Jenkins, change to public one -->
-        <system>Jenkins</system>
-        <url>https://codecop.ci.cloudbees.com/job/${project.artifactId}/</url>
-    </ciManagement>
-    <!-- TODO add distributionManagement for releases -->
 
     <properties>
-        <encoding>UTF-8</encoding>
-        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
-
         <!-- version of Hadoop infrastructure tools, provided -->
         <!-- see http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/CDH-Version-and-Packaging-Information/cdhvd_cdh_package_previous.html -->
         <hadoop.version>2.0.0-cdh4.2.0</hadoop.version>
@@ -163,14 +138,6 @@
                 <version>${mahout.version}</version>
             </dependency>
             -->
-
-            <!-- unit testing -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.11</version>
-                <scope>test</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -184,60 +151,5 @@
             <url>http://lilyproject.org/maven/maven2/deploy/</url>
         </repository>
     </repositories>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
-                <configuration>
-                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
-                    <runOrder>random</runOrder>
-                    <!-- <redirectTestOutputToFile>true</redirectTestOutputToFile> -->
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <quiet>true</quiet>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

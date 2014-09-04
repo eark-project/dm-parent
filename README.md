@@ -4,8 +4,6 @@ dm-parent
 eArk WP6 - reference implementation: common Maven configuration
 
 This defined the common properties for all (Java) `dm-*` projects which include
-* License, issue tracking and other organisational stuff.
-* Java version.
 * Version of Hadoop infrastructure tools (CDH), defined as properties. Versions have
   to match  for tools to work together well. For CDH see
   http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/CDH-Version-and-Packaging-Information/cdhvd_cdh_package_previous.html
@@ -16,5 +14,4 @@ This defined the common properties for all (Java) `dm-*` projects which include
 
 TODOs
 -----
-* change to Java 1.7 (64 bit rule)
 * put general configurations for Hadoop and others in `src/main/config/`
