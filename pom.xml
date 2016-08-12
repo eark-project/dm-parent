@@ -35,17 +35,16 @@
 
     <properties>
         <!-- version of Hadoop infrastructure tools, provided -->
+        <!-- list of cdh5.8 artifacts -->
+        <!-- https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_vd_cdh5_maven_repo_58x.html-->
         <!-- see http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/CDH-Version-and-Packaging-Information/cdhvd_cdh_package_previous.html -->
-        <hadoop.version>2.0.0-cdh4.2.0</hadoop.version>
-        <pig.version>0.10.0-cdh4.2.0</pig.version>
-        <hbase.version>0.94.2-cdh4.2.0</hbase.version>
+        <hadoop.version>2.6.0-cdh5.8.0</hadoop.version>
+        <!-- pig.version>0.10.0-cdh4.2.0</pig.version -->
+        <hbase.version>1.2.0-cdh5.8.0</hbase.version>
         <!-- transitive dependencies of CDH4, provided, if in conflict or used stand-alone -->
         <!-- UPDATE accordingly if CDH version is changed! -->
-        <log4j.version>1.2.17</log4j.version>
-        <slf4j.version>1.6.1</slf4j.version>
-
-        <mahout.version>0.7-cdh4.2.0</mahout.version>
-        <lily.version>2.4</lily.version>
+        <!-- log4j.version>1.2.17</log4j.version -->
+        <!-- slf4j.version>1.6.1</slf4j.version -->
     </properties>
 
     <dependencyManagement>
@@ -58,24 +57,92 @@
                 <version>${hadoop.version}</version>
                 <scope>provided</scope>
             </dependency>
+            
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
-                <artifactId>hadoop-client</artifactId>
+                <artifactId>hadoop-hdfs</artifactId>
                 <version>${hadoop.version}</version>
                 <scope>provided</scope>
             </dependency>
+            
+                                    
             <dependency>
-                <groupId>org.apache.pig</groupId>
-                <artifactId>pig</artifactId>
-                <version>${pig.version}</version>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-common</artifactId>
+                <version>${hadoop.version}</version>
                 <scope>provided</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-core</artifactId>
+                <version>${hadoop.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            
+            <!-- needed?            
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-yarn-client</artifactId>
+                <version>${hadoop.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-yarn-common</artifactId>
+                <version>${hadoop.version}</version>
+                <scope>provided</scope>
+            </dependency>            
+            -->
+            
+                        <!--
             <dependency>
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase</artifactId>
                 <version>${hbase.version}</version>
                 <scope>provided</scope>
             </dependency>
+            -->
+            
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-client</artifactId>
+                <version>${hbase.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-common</artifactId>
+                <version>${hbase.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-rest</artifactId>
+                <version>${hbase.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            
+            <!--            
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${hadoop.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            -->
+            <!--
+            <dependency>
+                <groupId>org.apache.pig</groupId>
+                <artifactId>pig</artifactId>
+                <version>${pig.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            -->
+            
             <!-- separation into client and server started with 0.95  
             <dependency>
                 <groupId>org.apache.hbase</groupId>
@@ -103,6 +170,7 @@
             </dependency>
             -->
 
+						<!--
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
@@ -121,33 +189,9 @@
                 <version>${slf4j.version}</version>
                 <scope>provided</scope>
             </dependency>
+						-->
 
-            <dependency>
-                <groupId>org.lilyproject</groupId>
-                <artifactId>lily-mapreduce</artifactId>
-                <version>${lily.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.mahout</groupId>
-                <artifactId>mahout-core</artifactId>
-                <version>${mahout.version}</version>
-                <scope>provided</scope>                
-            </dependency>
-            <dependency>
-                <groupId>org.apache.mahout</groupId>
-                <artifactId>mahout-math</artifactId>
-                <version>${mahout.version}</version>
-                <scope>provided</scope>                
-            </dependency>
-            <!-- depends on integration and has many dependency conflicts 
-            <dependency>
-                <groupId>org.apache.mahout</groupId>
-                <artifactId>mahout-examples</artifactId>
-                <version>${mahout.version}</version>
-            </dependency>
-            -->
+						
         </dependencies>
     </dependencyManagement>
 
@@ -155,10 +199,6 @@
         <repository>
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
-        </repository>
-        <repository>
-            <id>lilyproject</id>
-            <url>http://lilyproject.org/maven/maven2/deploy/</url>
         </repository>
     </repositories>
 
